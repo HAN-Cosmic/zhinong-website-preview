@@ -1,0 +1,1 @@
+for(let e of document.querySelectorAll(`[data-copy-wechat]`))e.addEventListener(`click`,async()=>{let t=e.dataset.copyWechat,n=e.parentElement?.querySelector(`[role=status]`);try{await navigator.clipboard.writeText(t),n&&(n.textContent=`已复制，请在微信中搜索该名称。`)}catch{n&&(n.textContent=`请在微信中搜索：${t}`)}});
