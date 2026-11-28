@@ -679,7 +679,7 @@ main .content-reading.section-shell, main .project-reading.section-shell { max-w
 }
 
 /* Align single-line fields on their baselines and center labels beside phone groups. */
-.contact-fields { margin:0; min-width:0; line-height:1.75; }
+.contact-fields { container:contact-fields / inline-size; margin:0; min-width:0; line-height:1.75; }
 .contact-fields > div {
   display:grid;
   grid-template-columns:var(--contact-label-width, 8rem) minmax(0,1fr);
@@ -709,9 +709,29 @@ main .content-reading.section-shell, main .project-reading.section-shell { max-w
 }
 @media (min-width:701px) {
   .contact-fields > div:has(.contact-field__hours) > dt { align-self:center; }
+  @container contact-fields (min-width:34rem) {
+    .contact-fields > div:has(.contact-field__hours) > dt { align-self:first baseline; }
+    .contact-field__phone-group:has(.contact-field__hours) {
+      grid-template-columns:minmax(0,1fr) 9.5rem;
+      align-items:first baseline;
+      justify-items:start;
+      column-gap:1rem;
+      width:100%;
+    }
+    .contact-field__phone-group:has(.contact-field__hours) .contact-field__phone { justify-content:start; }
+    .contact-field__hours { text-align:start; }
+  }
 }
 @media (max-width:700px) {
   .contact-fields > div { grid-template-columns:minmax(0,1fr); align-items:start; }
+}
+
+/* Keep the advantage summary and the company photos in one visual section. */
+main .home.layout-sample [data-home-section="advantages"]:has(.home-intro) {
+  padding-block: clamp(36px, 4vw, 56px);
+}
+main .home.layout-sample .home-intro + .home-company-grid {
+  margin-top: clamp(28px, 3vw, 44px);
 }
 </style><style>.footer-brand-row[data-astro-cid-nns7i3if] {
   display: flex;
@@ -1678,24 +1698,26 @@ h3[data-astro-cid-w53kduh3] {
 
 .home-intro[data-astro-cid-aqqgxix6] {
   display: grid;
-  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-  gap: 5rem;
+  grid-template-columns: minmax(13rem, 1fr) minmax(0, 3fr);
+  gap: 1.5rem 2.5rem;
 }
 
 .home-intro__heading[data-astro-cid-aqqgxix6] .home-text-link[data-astro-cid-aqqgxix6] {
-  margin-top: 1.5rem;
+  margin-top: .25rem;
 }
 
 .home-intro__body[data-astro-cid-aqqgxix6] > p[data-astro-cid-aqqgxix6] {
-  margin-bottom: 2rem;
+  max-width: none;
+  margin-bottom: 0;
   color: var(--ink-700);
   line-height: 1.9;
 }
 
 .home-strengths[data-astro-cid-aqqgxix6] {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem 2rem;
   margin: 0;
   padding: 1.5rem 0 0;
   border-top: 1px solid var(--line);
@@ -2076,10 +2098,6 @@ h3[data-astro-cid-w53kduh3] {
     width: calc(100% - 64px);
   }
 
-  .home-intro[data-astro-cid-aqqgxix6] {
-    gap: 3rem;
-  }
-
   .home-product-grid[data-astro-cid-aqqgxix6], .home-company-grid[data-astro-cid-aqqgxix6] {
     gap: 1.5rem;
   }
@@ -2096,7 +2114,12 @@ h3[data-astro-cid-w53kduh3] {
 @media (width <= 900px) {
   .home-intro[data-astro-cid-aqqgxix6] {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.25rem;
+  }
+
+  .home-strengths[data-astro-cid-aqqgxix6] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.25rem;
   }
 
   .home-intro__heading[data-astro-cid-aqqgxix6] {
@@ -2318,11 +2341,6 @@ h3[data-astro-cid-w53kduh3] {
     gap: .5rem;
     align-items: start;
     flex-direction: column;
-  }
-
-  .home-strengths[data-astro-cid-aqqgxix6] {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
   }
 
   .home-case-list[data-astro-cid-aqqgxix6] > a[data-astro-cid-aqqgxix6] {
@@ -3238,7 +3256,6 @@ h3[data-astro-cid-5ljwtxvj] {
 }
 
 .contact-fields[data-astro-cid-5ljwtxvj] {
-  container: directory-fields / inline-size;
   --contact-label-width: 128px;
   --contact-column-gap: 24px;
 }
@@ -3254,28 +3271,6 @@ h3[data-astro-cid-5ljwtxvj] {
 
 .contact-fields[data-astro-cid-5ljwtxvj] a[data-astro-cid-5ljwtxvj]:focus-visible {
   outline-offset: 3px;
-}
-
-@container directory-fields (width >= 34rem) {
-  .directory-field[data-astro-cid-5ljwtxvj]:has(.contact-field__hours) > dt[data-astro-cid-5ljwtxvj] {
-    align-self: baseline;
-  }
-
-  .contact-field__phone-group[data-astro-cid-5ljwtxvj]:has(.contact-field__hours) {
-    grid-template-columns: minmax(0, 1fr) 9.5rem;
-    align-items: baseline;
-    justify-items: start;
-    column-gap: 1rem;
-    width: 100%;
-  }
-
-  .contact-field__phone-group[data-astro-cid-5ljwtxvj]:has(.contact-field__hours) .contact-field__phone[data-astro-cid-5ljwtxvj] {
-    justify-content: start;
-  }
-
-  .contact-field__hours[data-astro-cid-5ljwtxvj] {
-    text-align: start;
-  }
 }
 
 .company-directory[data-astro-cid-5ljwtxvj], header[data-astro-cid-5ljwtxvj], .directory-company[data-astro-cid-5ljwtxvj], .contact-anchor[data-astro-cid-5ljwtxvj] {
