@@ -489,6 +489,252 @@ main { min-height: 60vh; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+</style><style>/* Shared long-form rhythm, scoped to the reviewed editorial sections. */
+main .content-reading.section-shell { max-width:800px; }
+main .legacy-story.content-reading { display:flex; flex-direction:column; gap:32px; }
+main .content-reading.section-shell.about-intro p, main .content-reading.section-shell p, main .legacy-prose.content-reading > div:first-child > p { font-size:16px; line-height:1.85; color:var(--ink-700); margin-bottom:24px; }
+main .content-reading h2 { font-size:clamp(24px,2.4vw,30px); line-height:1.5; margin-bottom:24px; }
+main .content-reading img, main .content-reading .legacy-story__media img { width:100%; height:auto; min-height:0; object-fit:contain; }
+main .content-reading .legacy-story__media { width:100%; }
+main .content-reading figcaption { font-size:14px; line-height:1.75; color:var(--ink-700); }
+
+/* Company copy, full photographs and contact fields share one reading edge. */
+main { --reading-width:800px; }
+main .company-inquiry { max-width:var(--reading-width); padding-bottom:var(--section); }
+main .company-inquiry h3 { margin-bottom:24px; }
+main .company-inquiry .solid-link { margin-top:28px; }
+
+/* The responsive image metadata supplies each company's own focal point.
+   Only these homepage thumbnails crop; detail photographs retain their full frame. */
+main .home .home-company__image { aspect-ratio:8 / 5; }
+main .home .home-company__image img { object-fit:cover !important; }
+
+/* Match the home and recruitment layouts across visitor content. */
+main {
+  --content-gutter:48px;
+  --page:min(calc(100% - 2 * var(--content-gutter)),1320px);
+  --page-narrow:min(calc(100% - 2 * var(--content-gutter)),var(--reading-width));
+  --body-leading:1.85;
+}
+main .section-shell :is(h1,h2,h3) { line-height:1.4; letter-spacing:-.02em; }
+main .section-shell :is(h2,h3) + p { margin-top:0; }
+main :is(.business-copy,.technology,.product-detail__section,.news-feed__empty,.news-feed__list,.legacy-company-cards,.project-reading,.catalog,.content-reading) p {
+  font-size:1rem; line-height:var(--body-leading);
+}
+main :is(.business-copy,.technology,.product-detail__section) > p { max-width:var(--reading-width); }
+main .content-reading.section-shell, main .project-reading.section-shell { max-width:var(--reading-width); }
+@media(max-width:1199px) { main { --content-gutter:32px; } }
+@media(max-width:760px) {
+  main { --content-gutter:16px; }
+  main :is(.breadcrumbs,.talent-heading nav) a { display:inline-flex; align-items:center; min-height:44px; }
+}
+
+/* Share the natural image, heading, copy and action rows across adjacent cards. */
+.home-product-grid > .home-product[data-product-id],
+.catalog .legacy-product-grid > a[data-product-id] {
+  display:grid;
+  grid-template-rows:subgrid;
+  grid-row:span 4;
+  row-gap:0;
+  align-items:start;
+}
+.home-product[data-product-id] .home-product__copy {
+  display:grid;
+  grid-template-rows:subgrid;
+  grid-row:span 3;
+  row-gap:0;
+  align-items:start;
+}
+
+@media (min-width:701px) {
+  .about-capabilities > div:has(p) {
+    display:grid;
+    grid-template-rows:subgrid;
+    grid-row:span 3;
+    row-gap:0;
+    align-items:start;
+    justify-items:start;
+  }
+}
+
+/* Align single-line fields on their baselines and center labels beside phone groups. */
+.contact-fields { margin:0; min-width:0; line-height:1.75; }
+.contact-fields > div {
+  display:grid;
+  grid-template-columns:var(--contact-label-width, 8rem) minmax(0,1fr);
+  align-items:first baseline;
+  column-gap:var(--contact-column-gap, 16px);
+}
+.contact-fields dt,
+.contact-field__phone span,
+.contact-fields dd p { color:var(--ink-700); font-size:.875rem; }
+.contact-fields dd { min-width:0; margin:0; font-size:1rem; line-height:inherit; overflow-wrap:anywhere; }
+.contact-field__hours { margin:0; text-align:center; }
+.contact-field__phone-group:has(.contact-field__hours) {
+  display:grid;
+  justify-items:center;
+  width:fit-content;
+  max-width:100%;
+}
+.contact-field__phone-group:has(.contact-field__hours) .contact-field__phone { justify-content:center; }
+.contact-field__phone { display:flex; flex-wrap:wrap; align-items:baseline; column-gap:.75rem; }
+.contact-fields a {
+  display:inline-block;
+  min-height:44px;
+  max-width:100%;
+  padding-block:.5em;
+  color:var(--forest-900);
+  text-underline-offset:.3em;
+}
+@media (min-width:701px) {
+  .contact-fields > div:has(.contact-field__hours) > dt { align-self:center; }
+}
+@media (max-width:700px) {
+  .contact-fields > div { grid-template-columns:minmax(0,1fr); align-items:start; }
+}
+</style><style>.footer-brand-row[data-astro-cid-nns7i3if] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #ffffff3d;
+}
+
+.footer-logo[data-astro-cid-nns7i3if] {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  min-height: 44px;
+}
+
+.footer-logo[data-astro-cid-nns7i3if]:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  mask: var(--brand-mask) center / contain no-repeat;
+  clip-path: inset(0 0 0 40%);
+  pointer-events: none;
+}
+
+.footer-logo[data-astro-cid-nns7i3if] img[data-astro-cid-nns7i3if] {
+  width: clamp(124px, 14vw, 180px);
+  height: auto;
+}
+
+.footer-hotline[data-astro-cid-nns7i3if] {
+  text-align: center;
+}
+
+.footer-hotline[data-astro-cid-nns7i3if] h2[data-astro-cid-nns7i3if], .footer-hotline[data-astro-cid-nns7i3if] p[data-astro-cid-nns7i3if] {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d1e3d7;
+}
+
+.footer-hotline[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.footer-hotline__details[data-astro-cid-nns7i3if] {
+  display: inline-grid;
+  justify-items: center;
+  max-width: 100%;
+  text-align: center;
+}
+
+.footer-hotline[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover {
+  text-decoration: underline;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: space-between;
+  max-width: 1020px;
+  margin-inline: auto;
+  gap: 24px 32px;
+  padding-block: 24px;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] section[data-astro-cid-nns7i3if] {
+  min-width: 0;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] h2[data-astro-cid-nns7i3if] {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] ul[data-astro-cid-nns7i3if], .footer-navigation[data-astro-cid-nns7i3if] dl[data-astro-cid-nns7i3if], .footer-navigation[data-astro-cid-nns7i3if] dd[data-astro-cid-nns7i3if] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] dl[data-astro-cid-nns7i3if] > div[data-astro-cid-nns7i3if] {
+  margin-top: 8px;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] dt[data-astro-cid-nns7i3if] {
+  color: #d1e3d7;
+  font-size: .875rem;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if] {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  color: #e2ece5;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] a[data-astro-cid-nns7i3if]:hover {
+  text-decoration: underline;
+}
+
+.footer-navigation[data-astro-cid-nns7i3if] .footer-official-email[data-astro-cid-nns7i3if] {
+  display: block;
+  padding-block: 9px;
+}
+
+.footer-official-email[data-astro-cid-nns7i3if] span[data-astro-cid-nns7i3if] {
+  white-space: nowrap;
+}
+
+@media (width <= 900px) {
+  .footer-navigation[data-astro-cid-nns7i3if] {
+    grid-template-columns: repeat(2, max-content);
+    max-width: 500px;
+  }
+}
+
+@media (width <= 600px) {
+  .footer-navigation[data-astro-cid-nns7i3if] {
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    max-width: none;
+    gap: 20px 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .footer-brand-row[data-astro-cid-nns7i3if] {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+}
 </style><style>.icon-arrow[data-astro-cid-cgwz3aqc] {
   width: 1.15em;
   height: 1.15em;
@@ -963,6 +1209,22 @@ main { min-height: 60vh; }
     transition: none;
   }
 }
+
+.navigation-panel[data-astro-cid-ylzt5y6o] li[data-astro-cid-ylzt5y6o][data-tier="section"] a[data-astro-cid-ylzt5y6o] {
+  font-weight: 650;
+}
+
+.navigation-panel[data-astro-cid-ylzt5y6o] li[data-astro-cid-ylzt5y6o][data-tier="product"] {
+  border-top: 0;
+}
+
+.navigation-panel[data-astro-cid-ylzt5y6o] li[data-astro-cid-ylzt5y6o][data-tier="product"] a[data-astro-cid-ylzt5y6o] {
+  padding-inline-start: 14px;
+}
+
+.navigation-panel[data-astro-cid-ylzt5y6o] li[data-astro-cid-ylzt5y6o][data-tier="product"] + li[data-astro-cid-ylzt5y6o][data-tier="section"] {
+  margin-top: 6px;
+}
 </style><style>.desktop-nav[data-astro-cid-fzpbxy5g] {
   align-self: stretch;
 }
@@ -1004,35 +1266,13 @@ h3[data-astro-cid-w53kduh3] {
   line-height: 1.5;
 }
 
-dl[data-astro-cid-w53kduh3] {
-  margin: 0;
+.contact-fields[data-astro-cid-w53kduh3] {
+  --contact-label-width: 9rem;
 }
 
-dl[data-astro-cid-w53kduh3] > div[data-astro-cid-w53kduh3] {
-  margin-top: 20px;
-}
-
-dt[data-astro-cid-w53kduh3] {
-  color: var(--ink-700);
-  font-size: .875rem;
-  margin-bottom: 6px;
-}
-
-dd[data-astro-cid-w53kduh3] {
-  margin: 0;
-  line-height: 1.85;
-  overflow-wrap: anywhere;
-}
-
-a[data-astro-cid-w53kduh3] {
-  color: var(--forest-900);
-  text-underline-offset: .3em;
-}
-
-.contact-hours[data-astro-cid-w53kduh3] {
-  margin: 4px 0 0;
-  font-size: .875rem;
-  color: var(--ink-700);
+.contact-fields[data-astro-cid-w53kduh3] > div[data-astro-cid-w53kduh3] {
+  border-top: 1px solid var(--line);
+  padding-block: 12px;
 }
 </style><style>/* Opt-in layout specimens: homepage body, talent listing, and job reading pages. */
 .layout-sample {
@@ -1484,14 +1724,16 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
   gap: 2rem;
 }
 
-.home-business-grid[data-astro-cid-aqqgxix6] > a[data-astro-cid-aqqgxix6] {
-  display: flex;
-  flex-direction: column;
+.home-business-grid[data-astro-cid-aqqgxix6] > article[data-astro-cid-aqqgxix6] {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  row-gap: 0;
   align-items: start;
+  justify-items: start;
   min-width: 0;
   padding-block: 1.5rem;
   border-top: 1px solid var(--line);
-  color: inherit;
 }
 
 .home-business-grid[data-astro-cid-aqqgxix6] h3[data-astro-cid-aqqgxix6] {
@@ -1499,16 +1741,12 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
 }
 
 .home-business-grid[data-astro-cid-aqqgxix6] p[data-astro-cid-aqqgxix6] {
+  margin-bottom: .5rem;
   color: var(--ink-700);
 }
 
-.home-business-grid[data-astro-cid-aqqgxix6] .home-product__link[data-astro-cid-aqqgxix6] {
-  min-height: 44px;
-  margin-top: auto;
-}
-
-.home-advantage-block[data-astro-cid-aqqgxix6] {
-  margin-top: 3rem;
+.home-business__action[data-astro-cid-aqqgxix6] {
+  grid-row: 3;
 }
 
 @media (width <= 900px) {
@@ -1563,10 +1801,8 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
 }
 
 .home-product[data-astro-cid-aqqgxix6] p[data-astro-cid-aqqgxix6] {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  display: block;
+  overflow: visible;
   margin-bottom: 1rem;
   color: var(--ink-700);
   font-size: .875rem;
@@ -2169,8 +2405,7 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
 .company-structure[data-astro-cid-fnedy4ec] a[data-astro-cid-fnedy4ec] {
   display: block;
   min-width: 0;
-  padding: 2rem;
-  background: var(--surface);
+  padding-block-end: 1rem;
   text-decoration: none;
 }
 
@@ -2185,7 +2420,8 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
 
 .company-structure[data-astro-cid-fnedy4ec] img[data-astro-cid-fnedy4ec] {
   width: 100%;
-  height: 240px;
+  height: auto;
+  aspect-ratio: 8 / 5;
   margin-bottom: 1.5rem;
 }
 
@@ -2209,9 +2445,11 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
 }
 
 .company-structure__parent[data-astro-cid-fnedy4ec] {
-  max-width: 760px;
-  margin-inline: auto;
   text-align: center;
+}
+
+.company-structure__parent[data-astro-cid-fnedy4ec] img[data-astro-cid-fnedy4ec] {
+  aspect-ratio: 2;
 }
 
 .company-structure__parent[data-astro-cid-fnedy4ec]:after {
@@ -2232,6 +2470,10 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
   list-style: none;
 }
 
+.company-structure__subsidiaries[data-astro-cid-fnedy4ec] h3[data-astro-cid-fnedy4ec] {
+  text-align: center;
+}
+
 .company-structure__subsidiaries[data-astro-cid-fnedy4ec] li[data-astro-cid-fnedy4ec] {
   min-width: 0;
 }
@@ -2250,16 +2492,18 @@ main .job-detail.layout-sample a:focus-visible { outline: 3px solid var(--focus)
     gap: 1rem;
   }
 
-  .company-structure[data-astro-cid-fnedy4ec] a[data-astro-cid-fnedy4ec] {
-    padding: 1.5rem;
+  .company-structure__parent[data-astro-cid-fnedy4ec] img[data-astro-cid-fnedy4ec] {
+    aspect-ratio: 8 / 5;
   }
 }
 </style><style>.about-intro[data-astro-cid-c3klhbzh] {
   max-width: 900px;
   padding-top: var(--section);
+  text-align: center;
 }
 
 .about-intro[data-astro-cid-c3klhbzh] p[data-astro-cid-c3klhbzh] {
+  margin-inline: auto;
   color: var(--ink-700);
   line-height: 1.9;
 }
@@ -2388,6 +2632,14 @@ summary[data-astro-cid-3tsjvdod] {
 }
 </style><style>.catalog[data-astro-cid-eijyee5r] {
   padding-block: var(--section);
+}
+
+.catalog[data-astro-cid-eijyee5r] .legacy-product-grid[data-astro-cid-eijyee5r] p[data-astro-cid-eijyee5r] {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
 .catalog[data-astro-cid-eijyee5r] h2[data-astro-cid-eijyee5r] {
@@ -2597,7 +2849,7 @@ figcaption[data-astro-cid-fmfgs2lu] a[data-astro-cid-fmfgs2lu] {
   margin: 0;
 }
 </style><style>.packaging[data-astro-cid-6skfal44] {
-  max-width: 900px;
+  max-width: 800px;
   padding-bottom: var(--section);
 }
 
@@ -2606,11 +2858,15 @@ h2[data-astro-cid-6skfal44] {
 }
 
 p[data-astro-cid-6skfal44] {
+  font-size: .875rem;
+  line-height: 1.75;
   color: var(--ink-700);
 }
 
 dl[data-astro-cid-6skfal44] {
   margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
 dl[data-astro-cid-6skfal44] > div[data-astro-cid-6skfal44] {
@@ -2645,16 +2901,31 @@ a[data-astro-cid-6skfal44] {
 
 @media (width <= 480px) {
   dl[data-astro-cid-6skfal44] > div[data-astro-cid-6skfal44] {
-    grid-template-columns: 1fr;
-    gap: .5rem;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 1rem;
   }
 }
-</style><style>.product-detail__top[data-astro-cid-tyiywhkw] {
+</style><style>.product-detail__identity[data-astro-cid-tyiywhkw] {
+  padding-top: var(--section);
+}
+
+.product-detail__identity[data-astro-cid-tyiywhkw] h1[data-astro-cid-tyiywhkw] {
+  margin-bottom: 12px;
+}
+
+.product-formulation[data-astro-cid-tyiywhkw] {
+  margin: 0;
+  color: var(--forest-800);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.product-detail__top[data-astro-cid-tyiywhkw] {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
   gap: clamp(2rem, 5vw, 4rem);
-  padding-block: var(--section) 2rem;
+  padding-block: 24px 2rem;
 }
 
 .product-detail__heading[data-astro-cid-tyiywhkw] {
@@ -2667,7 +2938,8 @@ h1[data-astro-cid-tyiywhkw] {
 
 .product-detail__lead[data-astro-cid-tyiywhkw], .product-detail__section[data-astro-cid-tyiywhkw] > p[data-astro-cid-tyiywhkw] {
   color: var(--ink-700);
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
 .product-detail__single[data-astro-cid-tyiywhkw] img[data-astro-cid-tyiywhkw] {
@@ -2741,7 +3013,7 @@ h3[data-astro-cid-tyiywhkw] {
 }
 
 .product-detail__spec[data-astro-cid-tyiywhkw] {
-  max-width: 900px;
+  max-width: 800px;
 }
 
 .product-detail__spec[data-astro-cid-tyiywhkw] > dl[data-astro-cid-tyiywhkw] {
@@ -2766,7 +3038,7 @@ h3[data-astro-cid-tyiywhkw] {
 }
 
 .legacy-related[data-astro-cid-tyiywhkw] {
-  max-width: 900px;
+  max-width: 800px;
 }
 
 @media (width <= 760px) {
@@ -2783,6 +3055,126 @@ h3[data-astro-cid-tyiywhkw] {
   .product-actions[data-astro-cid-tyiywhkw] {
     display: grid;
     grid-template-columns: 1fr;
+  }
+}
+</style><style>.company-banner[data-astro-cid-r4nxlh4q] {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  margin-block: 48px;
+  background: #fff;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.company-banner__title[data-astro-cid-r4nxlh4q] {
+  padding-block: 32px;
+}
+
+.company-banner__title[data-astro-cid-r4nxlh4q] p[data-astro-cid-r4nxlh4q] {
+  color: var(--forest-700);
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.company-banner[data-astro-cid-r4nxlh4q] h1[data-astro-cid-r4nxlh4q] {
+  font-size: clamp(28px, 3.1vw, 44px);
+  line-height: 1.5;
+  margin: 0;
+  color: var(--forest-900);
+  overflow-wrap: anywhere;
+}
+
+.company-banner__place[data-astro-cid-r4nxlh4q] {
+  white-space: nowrap;
+}
+
+.company-banner[data-astro-cid-r4nxlh4q] img[data-astro-cid-r4nxlh4q] {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width <= 700px) {
+  .company-banner[data-astro-cid-r4nxlh4q] {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-block: 32px;
+  }
+
+  .company-banner__title[data-astro-cid-r4nxlh4q] {
+    padding: 0;
+  }
+
+  .company-banner[data-astro-cid-r4nxlh4q] h1[data-astro-cid-r4nxlh4q] {
+    font-size: 28px;
+  }
+}
+</style><style>.project-reading[data-astro-cid-l2nlvqdx] {
+  max-width: 800px;
+  padding-block: var(--section);
+}
+
+.project-reading__eyebrow[data-astro-cid-l2nlvqdx] {
+  color: var(--forest-700);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+h1[data-astro-cid-l2nlvqdx] {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+dl[data-astro-cid-l2nlvqdx] {
+  margin: 0 0 40px;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+dl[data-astro-cid-l2nlvqdx] > div[data-astro-cid-l2nlvqdx] {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+dt[data-astro-cid-l2nlvqdx] {
+  color: var(--ink-700);
+}
+
+dd[data-astro-cid-l2nlvqdx] {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+figure[data-astro-cid-l2nlvqdx] {
+  margin: 0;
+}
+
+img[data-astro-cid-l2nlvqdx] {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-reading__consult[data-astro-cid-l2nlvqdx] {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+h2[data-astro-cid-l2nlvqdx] {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+@media (width <= 600px) {
+  dl[data-astro-cid-l2nlvqdx] > div[data-astro-cid-l2nlvqdx] {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 12px;
   }
 }
 </style><style>.company-directory[data-astro-cid-5ljwtxvj] {
@@ -2831,15 +3223,7 @@ h3[data-astro-cid-5ljwtxvj] {
   text-wrap: balance;
 }
 
-dl[data-astro-cid-5ljwtxvj] {
-  margin: 0;
-  min-width: 0;
-}
-
 .directory-field[data-astro-cid-5ljwtxvj] {
-  display: grid;
-  grid-template-columns: 128px minmax(0, 1fr);
-  gap: 24px;
   padding-block: 16px;
   border-bottom: 1px solid var(--line);
 }
@@ -2853,60 +3237,45 @@ dl[data-astro-cid-5ljwtxvj] {
   padding-bottom: 0;
 }
 
-dt[data-astro-cid-5ljwtxvj] {
-  padding-block: 8px;
-  font-size: .875rem;
-  line-height: 1.75;
-  color: var(--ink-700);
+.contact-fields[data-astro-cid-5ljwtxvj] {
+  container: directory-fields / inline-size;
+  --contact-label-width: 128px;
+  --contact-column-gap: 24px;
 }
 
-dd[data-astro-cid-5ljwtxvj] {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.85;
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.directory-field[data-astro-cid-5ljwtxvj]:first-child dd[data-astro-cid-5ljwtxvj] {
-  padding-top: 6px;
-}
-
-.directory-phone[data-astro-cid-5ljwtxvj] {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0 16px;
-}
-
-.directory-phone[data-astro-cid-5ljwtxvj] span[data-astro-cid-5ljwtxvj] {
-  font-size: .875rem;
-  color: var(--ink-700);
-}
-
-a[data-astro-cid-5ljwtxvj] {
-  display: inline-block;
-  min-height: 44px;
-  padding-block: 7px;
+.contact-fields[data-astro-cid-5ljwtxvj] a[data-astro-cid-5ljwtxvj] {
   color: var(--forest-800);
-  text-underline-offset: .3em;
   text-decoration-thickness: 1px;
 }
 
-a[data-astro-cid-5ljwtxvj]:hover {
+.contact-fields[data-astro-cid-5ljwtxvj] a[data-astro-cid-5ljwtxvj]:hover {
   color: var(--forest-950);
 }
 
-a[data-astro-cid-5ljwtxvj]:focus-visible {
-  outline: 3px solid var(--focus);
+.contact-fields[data-astro-cid-5ljwtxvj] a[data-astro-cid-5ljwtxvj]:focus-visible {
   outline-offset: 3px;
 }
 
-dd[data-astro-cid-5ljwtxvj] p[data-astro-cid-5ljwtxvj] {
-  margin: 0;
-  font-size: .875rem;
-  line-height: 1.75;
-  color: var(--ink-700);
+@container directory-fields (width >= 34rem) {
+  .directory-field[data-astro-cid-5ljwtxvj]:has(.contact-field__hours) > dt[data-astro-cid-5ljwtxvj] {
+    align-self: baseline;
+  }
+
+  .contact-field__phone-group[data-astro-cid-5ljwtxvj]:has(.contact-field__hours) {
+    grid-template-columns: minmax(0, 1fr) 9.5rem;
+    align-items: baseline;
+    justify-items: start;
+    column-gap: 1rem;
+    width: 100%;
+  }
+
+  .contact-field__phone-group[data-astro-cid-5ljwtxvj]:has(.contact-field__hours) .contact-field__phone[data-astro-cid-5ljwtxvj] {
+    justify-content: start;
+  }
+
+  .contact-field__hours[data-astro-cid-5ljwtxvj] {
+    text-align: start;
+  }
 }
 
 .company-directory[data-astro-cid-5ljwtxvj], header[data-astro-cid-5ljwtxvj], .directory-company[data-astro-cid-5ljwtxvj], .contact-anchor[data-astro-cid-5ljwtxvj] {
@@ -2931,9 +3300,8 @@ dd[data-astro-cid-5ljwtxvj] p[data-astro-cid-5ljwtxvj] {
     gap: 40px;
   }
 
-  .directory-field[data-astro-cid-5ljwtxvj] {
-    grid-template-columns: 128px minmax(0, 1fr);
-    gap: 16px;
+  .contact-fields[data-astro-cid-5ljwtxvj] {
+    --contact-column-gap: 16px;
   }
 }
 
@@ -2961,17 +3329,7 @@ dd[data-astro-cid-5ljwtxvj] p[data-astro-cid-5ljwtxvj] {
   }
 
   .directory-field[data-astro-cid-5ljwtxvj] {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
     padding-block: 12px;
   }
-
-  dt[data-astro-cid-5ljwtxvj] {
-    padding-block: 0;
-  }
-
-  .directory-field[data-astro-cid-5ljwtxvj]:first-child dd[data-astro-cid-5ljwtxvj] {
-    padding-top: 4px;
-  }
 }
-</style><link rel="canonical" href="https://han-cosmic.github.io/zhinong-website-preview/cases/legacy-40970/"></head><body><a class="skip-link" href="#main-content">跳到主要内容</a><div class="site-shell"><header class="site-header" data-astro-cid-fzpbxy5g><a class="brand" href="/zhinong-website-preview/" aria-label="至农官方网站首页" data-astro-cid-fzpbxy5g><img class="brand__logo" src="/zhinong-website-preview/brand/zhinong-logo.png" alt="至农科技 Zhi Nong Technology" width="2400" height="895" loading="eager" decoding="async" data-astro-cid-fzpbxy5g></a><nav class="desktop-nav" aria-label="主导航" data-astro-cid-fzpbxy5g><header-navigation data-mode="desktop" data-astro-cid-ylzt5y6o="true"><a data-primary-link href="/zhinong-website-preview/" data-astro-cid-ylzt5y6o>首页</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>关于我们</a><button class="submenu-toggle" type="button" aria-label="展开关于我们二级导航" aria-controls="desktop-submenu-1" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel navigation-panel--illustrated" id="desktop-submenu-1" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="关于我们二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>公司概况</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/zhejiang/" data-astro-cid-ylzt5y6o>至农科技发展（浙江）有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/jiangxi/" data-astro-cid-ylzt5y6o>江西至农技术发展有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/qingyuan/" data-astro-cid-ylzt5y6o>至农科技发展（庆元）有限公司</a></li></ul><img src="/zhinong-website-preview/assets/display/c27ee874e0e2fe288e821454be813fcd00869ca9807735e632ccd7f936dde694.webp" alt="浙江公司对应园区图片" width="440" height="330" srcset="/zhinong-website-preview/assets/display/3dabc185e439789279b10b397d4ef0eafccdf2950019f7c54025722d44b2faaa.webp 480w, /zhinong-website-preview/assets/display/c27ee874e0e2fe288e821454be813fcd00869ca9807735e632ccd7f936dde694.webp 960w, /zhinong-website-preview/assets/display/afcf7d588ef1b550b821037b20e4152af42024dfb1235ad0af5c79f679b91f3c.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) 50vw, 960px" style="object-fit:contain;object-position:58% 50%;background:var(--surface);" data-company-image="zhejiang" class="astro-ylzt5y6o" loading="lazy" decoding="async" data-astro-cid-ylzt5y6o></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/products/" data-astro-cid-ylzt5y6o>产品与技术</a><button class="submenu-toggle" type="button" aria-label="展开产品与技术二级导航" aria-controls="desktop-submenu-2" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel navigation-panel--illustrated" id="desktop-submenu-2" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="产品与技术二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36706/" data-astro-cid-ylzt5y6o>生物有机肥</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36705/" data-astro-cid-ylzt5y6o>有机肥</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36701/" data-astro-cid-ylzt5y6o>酸性土壤调理剂</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36703/" data-astro-cid-ylzt5y6o>含硅水溶肥</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/core-technology/" data-astro-cid-ylzt5y6o>核心技术</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/research-production/" data-astro-cid-ylzt5y6o>研发与生产</a></li></ul><img src="/zhinong-website-preview/assets/display/759de7f376ba9747efd151f34009bb820376a8d8084df88ace5a42caa1a2940f.webp" alt="生物有机肥" width="440" height="330" class="astro-ylzt5y6o" loading="lazy" decoding="async" data-astro-cid-ylzt5y6o></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/solutions/" data-astro-cid-ylzt5y6o>主营业务</a><button class="submenu-toggle" type="button" aria-label="展开主营业务二级导航" aria-controls="desktop-submenu-3" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel navigation-panel--illustrated" id="desktop-submenu-3" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="主营业务二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/acidic-soil/" data-astro-cid-ylzt5y6o>酸化土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/cultivated-land-safe-use/" data-astro-cid-ylzt5y6o>重金属污染耕地安全利用</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/soil-fertility/" data-astro-cid-ylzt5y6o>土壤肥力提升</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/continuous-cropping/" data-astro-cid-ylzt5y6o>连作障碍防治</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/saline-alkali-soil/" data-astro-cid-ylzt5y6o>盐碱土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/crop-quality/" data-astro-cid-ylzt5y6o>作物质量提升</a></li></ul><img src="/zhinong-website-preview/assets/display/f9da0bd58106390db33acd5569a07844b7eec9438cbcb5c423f253db978749d4.jpg" alt="绍兴市上虞区酸化耕地治理项目" width="440" height="330" class="astro-ylzt5y6o" loading="lazy" decoding="async" data-astro-cid-ylzt5y6o></div></div><a data-primary-link href="/zhinong-website-preview/cases/" aria-current="page" data-astro-cid-ylzt5y6o>项目案例</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/talent/" data-astro-cid-ylzt5y6o>人才资源</a><button class="submenu-toggle" type="button" aria-label="展开人才资源二级导航" aria-controls="desktop-submenu-5" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="desktop-submenu-5" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="人才资源二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#recruitment" data-astro-cid-ylzt5y6o>招聘信息</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#leadership" data-astro-cid-ylzt5y6o>领导介绍</a></li></ul></div></div><a data-primary-link href="/zhinong-website-preview/contact/" data-astro-cid-ylzt5y6o>联系我们</a></header-navigation><script type="module" src="/zhinong-website-preview/assets/client/HeaderNavigation-G24DLpAo.js"></script></nav><div class="header-tools" data-astro-cid-fzpbxy5g><site-search data-index-url="/zhinong-website-preview/search-index.json" data-astro-cid-7yy3665x="true"><button class="header-tool" type="button" aria-label="站内搜索" aria-expanded="false" aria-controls="site-search-panel" data-astro-cid-7yy3665x><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" data-astro-cid-7yy3665x><circle cx="10.5" cy="10.5" r="6.5" data-astro-cid-7yy3665x></circle><path d="m15.5 15.5 5 5" data-astro-cid-7yy3665x></path></svg></button><div id="site-search-panel" class="header-search-panel" role="region" aria-label="站内搜索" aria-hidden="true" data-open="false" inert data-astro-cid-7yy3665x><div class="header-search-row" data-astro-cid-7yy3665x><form class="search-form" role="search" data-astro-cid-7yy3665x><label class="search-sr-only" for="site-search-input" data-astro-cid-7yy3665x>搜索至农网站内容</label><div class="search-form__row" data-astro-cid-7yy3665x><input id="site-search-input" type="search" name="q" maxlength="100" autocomplete="off" enterkeyhint="search" placeholder="搜索 znkeji.com" data-astro-cid-7yy3665x><button type="submit" aria-label="搜索" data-astro-cid-7yy3665x><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" data-astro-cid-7yy3665x><circle cx="10.5" cy="10.5" r="6.5" data-astro-cid-7yy3665x></circle><path d="m15.5 15.5 5 5" data-astro-cid-7yy3665x></path></svg></button></div></form><button class="search-close" type="button" aria-label="关闭搜索" data-astro-cid-7yy3665x><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-7yy3665x><path d="m6 6 12 12M6 18 18 6" data-astro-cid-7yy3665x></path></svg></button></div><div class="search-dropdown" hidden data-astro-cid-7yy3665x><div class="search-feedback" data-astro-cid-7yy3665x><p class="search-status" role="status" aria-live="polite" aria-atomic="true" hidden data-astro-cid-7yy3665x></p><button class="search-retry" type="button" hidden data-astro-cid-7yy3665x>重试</button></div><ol class="search-results" aria-label="搜索结果" hidden data-astro-cid-7yy3665x></ol></div></div></site-search><script type="module" src="/zhinong-website-preview/assets/client/SiteSearch-6YN7zqxL.js"></script><a class="header-tool" href="/zhinong-website-preview/contact/#contact-options" aria-label="联系我们" title="联系我们" data-astro-cid-fzpbxy5g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" data-astro-cid-fzpbxy5g><rect x="3" y="5" width="18" height="14" rx="1" data-astro-cid-fzpbxy5g></rect><path d="m3 6 9 7 9-7" data-astro-cid-fzpbxy5g></path></svg></a></div><details class="mobile-nav" data-astro-cid-fzpbxy5g><summary data-astro-cid-fzpbxy5g><span data-astro-cid-fzpbxy5g>导航</span><svg class="icon-arrow icon-arrow--down" viewBox="0 0 20 20" aria-hidden="true" data-astro-cid-cgwz3aqc><path d="M3 10h13M11 5l5 5-5 5" data-astro-cid-cgwz3aqc></path></svg></summary><nav aria-label="移动端主导航" data-astro-cid-fzpbxy5g><header-navigation data-mode="mobile" data-astro-cid-ylzt5y6o="true"><a data-primary-link href="/zhinong-website-preview/" data-astro-cid-ylzt5y6o>首页</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>关于我们</a><button class="submenu-toggle" type="button" aria-label="展开关于我们二级导航" aria-controls="mobile-submenu-1" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-1" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="关于我们二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>公司概况</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/zhejiang/" data-astro-cid-ylzt5y6o>至农科技发展（浙江）有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/jiangxi/" data-astro-cid-ylzt5y6o>江西至农技术发展有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/qingyuan/" data-astro-cid-ylzt5y6o>至农科技发展（庆元）有限公司</a></li></ul></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/products/" data-astro-cid-ylzt5y6o>产品与技术</a><button class="submenu-toggle" type="button" aria-label="展开产品与技术二级导航" aria-controls="mobile-submenu-2" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-2" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="产品与技术二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36706/" data-astro-cid-ylzt5y6o>生物有机肥</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36705/" data-astro-cid-ylzt5y6o>有机肥</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36701/" data-astro-cid-ylzt5y6o>酸性土壤调理剂</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36703/" data-astro-cid-ylzt5y6o>含硅水溶肥</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/core-technology/" data-astro-cid-ylzt5y6o>核心技术</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/research-production/" data-astro-cid-ylzt5y6o>研发与生产</a></li></ul></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/solutions/" data-astro-cid-ylzt5y6o>主营业务</a><button class="submenu-toggle" type="button" aria-label="展开主营业务二级导航" aria-controls="mobile-submenu-3" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-3" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="主营业务二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/acidic-soil/" data-astro-cid-ylzt5y6o>酸化土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/cultivated-land-safe-use/" data-astro-cid-ylzt5y6o>重金属污染耕地安全利用</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/soil-fertility/" data-astro-cid-ylzt5y6o>土壤肥力提升</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/continuous-cropping/" data-astro-cid-ylzt5y6o>连作障碍防治</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/saline-alkali-soil/" data-astro-cid-ylzt5y6o>盐碱土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/crop-quality/" data-astro-cid-ylzt5y6o>作物质量提升</a></li></ul></div></div><a data-primary-link href="/zhinong-website-preview/cases/" aria-current="page" data-astro-cid-ylzt5y6o>项目案例</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/talent/" data-astro-cid-ylzt5y6o>人才资源</a><button class="submenu-toggle" type="button" aria-label="展开人才资源二级导航" aria-controls="mobile-submenu-5" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-5" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="人才资源二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#recruitment" data-astro-cid-ylzt5y6o>招聘信息</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#leadership" data-astro-cid-ylzt5y6o>领导介绍</a></li></ul></div></div><a data-primary-link href="/zhinong-website-preview/contact/" data-astro-cid-ylzt5y6o>联系我们</a></header-navigation></nav></details></header><main id="main-content"><div class="legacy-site"><section class="legacy-case-detail section-shell"><time>2026-06-29</time><h1>2023年玉山县受污染耕地安全利用及严格管控项目</h1><img src="/zhinong-website-preview/assets/display/a05f45d7dabf96b0c377345309326e8d9ee640cf6a992c12ad69862514042d5f.jpg" alt="2023年玉山县受污染耕地安全利用及严格管控项目"><div class="action-row"><a class="outline-link" href="/zhinong-website-preview/cases/">返回项目案例 <svg class="icon-arrow icon-arrow--right" viewBox="0 0 20 20" aria-hidden="true" data-astro-cid-cgwz3aqc><path d="M3 10h13M11 5l5 5-5 5" data-astro-cid-cgwz3aqc></path></svg></a><a class="solid-link" href="/zhinong-website-preview/contact/">项目合作咨询 <svg class="icon-arrow icon-arrow--right" viewBox="0 0 20 20" aria-hidden="true" data-astro-cid-cgwz3aqc><path d="M3 10h13M11 5l5 5-5 5" data-astro-cid-cgwz3aqc></path></svg></a></div></section></div></main><footer class="site-footer"><div class="site-footer__main"><div class="site-footer__lead"><p class="site-footer__name">把绿色还给大地，<br>把健康还给人民。</p><p>致力于成为耕地土壤健康调控领军型企业。</p></div><nav class="site-footer__column" aria-label="网站导航"><h2>网站导航</h2><a href="/zhinong-website-preview/">首页</a><a href="/zhinong-website-preview/about/">关于我们</a><a href="/zhinong-website-preview/products/">产品与技术</a><a href="/zhinong-website-preview/solutions/">主营业务</a><a href="/zhinong-website-preview/cases/">项目案例</a><a href="/zhinong-website-preview/talent/">人才资源</a><a href="/zhinong-website-preview/contact/">联系我们</a></nav><nav class="site-footer__column" aria-label="联系至农"><h2>联系我们</h2><a href="/zhinong-website-preview/contact/#business">业务合作</a><a href="/zhinong-website-preview/contact/#media">媒体联系</a><a href="/zhinong-website-preview/contact/#feedback">意见反馈</a><div class="footer-contact-item"><span>官方电话</span><a href="tel:0571-88771405">0571-88771405</a></div><div class="footer-contact-item"><span>官方邮箱</span><a class="footer-email" href="mailto:zhinong@zjshjkj.com"><span class="footer-email__part">zhinong</span><wbr><span class="footer-email__part">@zjshjkj.com</span></a></div></nav><nav class="site-footer__column" aria-label="新闻与媒体"><h2>新闻与媒体</h2><a href="/zhinong-website-preview/news/?category=company">公司新闻</a><a href="/zhinong-website-preview/news/?category=media">媒体报道</a><a href="/zhinong-website-preview/cases/">项目案例</a></nav></div><div class="site-footer__legal"><span>© 2026 至农科技发展（浙江）有限公司</span></div></footer></div></body></html>
+</style><link rel="canonical" href="https://han-cosmic.github.io/zhinong-website-preview/cases/legacy-40970/"></head><body><a class="skip-link" href="#main-content">跳到主要内容</a><div class="site-shell"><header class="site-header" data-astro-cid-fzpbxy5g><a class="brand" href="/zhinong-website-preview/" aria-label="至农官方网站首页" data-astro-cid-fzpbxy5g><img class="brand__logo" src="/zhinong-website-preview/brand/zhinong-logo.png" alt="至农科技 Zhi Nong Technology" width="2400" height="895" loading="eager" decoding="async" data-astro-cid-fzpbxy5g></a><nav class="desktop-nav" aria-label="主导航" data-astro-cid-fzpbxy5g><header-navigation data-mode="desktop" data-astro-cid-ylzt5y6o="true"><a data-primary-link href="/zhinong-website-preview/" data-astro-cid-ylzt5y6o>首页</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>关于我们</a><button class="submenu-toggle" type="button" aria-label="展开关于我们二级导航" aria-controls="desktop-submenu-1" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel navigation-panel--illustrated" id="desktop-submenu-1" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="关于我们二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>公司概况</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/zhejiang/" data-astro-cid-ylzt5y6o>至农科技发展（浙江）有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/jiangxi/" data-astro-cid-ylzt5y6o>江西至农技术发展有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/qingyuan/" data-astro-cid-ylzt5y6o>至农科技发展（庆元）有限公司</a></li></ul><img src="/zhinong-website-preview/assets/display/c27ee874e0e2fe288e821454be813fcd00869ca9807735e632ccd7f936dde694.webp" alt="浙江公司对应园区图片" width="440" height="330" srcset="/zhinong-website-preview/assets/display/3dabc185e439789279b10b397d4ef0eafccdf2950019f7c54025722d44b2faaa.webp 480w, /zhinong-website-preview/assets/display/c27ee874e0e2fe288e821454be813fcd00869ca9807735e632ccd7f936dde694.webp 960w, /zhinong-website-preview/assets/display/afcf7d588ef1b550b821037b20e4152af42024dfb1235ad0af5c79f679b91f3c.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) 50vw, 960px" style="object-fit:contain;object-position:58% 50%;background:var(--surface);" data-company-image="zhejiang" class="astro-ylzt5y6o" loading="lazy" decoding="async" data-astro-cid-ylzt5y6o></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/products/" data-astro-cid-ylzt5y6o>产品与技术</a><button class="submenu-toggle" type="button" aria-label="展开产品与技术二级导航" aria-controls="desktop-submenu-2" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel navigation-panel--illustrated" id="desktop-submenu-2" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="产品与技术二级导航" data-astro-cid-ylzt5y6o><li data-tier="section" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/" data-astro-cid-ylzt5y6o>产品概览</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36706/" data-astro-cid-ylzt5y6o>生物有机肥</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36705/" data-astro-cid-ylzt5y6o>有机肥</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36701/" data-astro-cid-ylzt5y6o>酸性土壤调理剂</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36703/" data-astro-cid-ylzt5y6o>含硅水溶肥</a></li><li data-tier="section" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/core-technology/" data-astro-cid-ylzt5y6o>核心技术</a></li></ul><img src="/zhinong-website-preview/assets/display/759de7f376ba9747efd151f34009bb820376a8d8084df88ace5a42caa1a2940f.webp" alt="生物有机肥" width="440" height="330" class="astro-ylzt5y6o" loading="lazy" decoding="async" data-astro-cid-ylzt5y6o></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/solutions/" data-astro-cid-ylzt5y6o>主营业务</a><button class="submenu-toggle" type="button" aria-label="展开主营业务二级导航" aria-controls="desktop-submenu-3" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel navigation-panel--illustrated" id="desktop-submenu-3" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="主营业务二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/acidic-soil/" data-astro-cid-ylzt5y6o>酸化土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/cultivated-land-safe-use/" data-astro-cid-ylzt5y6o>重金属污染耕地安全利用</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/soil-fertility/" data-astro-cid-ylzt5y6o>土壤肥力提升</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/continuous-cropping/" data-astro-cid-ylzt5y6o>连作障碍防治</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/saline-alkali-soil/" data-astro-cid-ylzt5y6o>盐碱土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/crop-quality/" data-astro-cid-ylzt5y6o>作物质量提升</a></li></ul><img src="/zhinong-website-preview/assets/display/f9da0bd58106390db33acd5569a07844b7eec9438cbcb5c423f253db978749d4.jpg" alt="绍兴市上虞区酸化耕地治理项目" width="440" height="330" class="astro-ylzt5y6o" loading="lazy" decoding="async" data-astro-cid-ylzt5y6o></div></div><a data-primary-link href="/zhinong-website-preview/cases/" aria-current="page" data-astro-cid-ylzt5y6o>项目案例</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/talent/" data-astro-cid-ylzt5y6o>人才资源</a><button class="submenu-toggle" type="button" aria-label="展开人才资源二级导航" aria-controls="desktop-submenu-5" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="desktop-submenu-5" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="人才资源二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#recruitment" data-astro-cid-ylzt5y6o>招聘信息</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#leadership" data-astro-cid-ylzt5y6o>领导介绍</a></li></ul></div></div><a data-primary-link href="/zhinong-website-preview/contact/" data-astro-cid-ylzt5y6o>联系我们</a></header-navigation><script type="module" src="/zhinong-website-preview/assets/client/HeaderNavigation-G24DLpAo.js"></script></nav><div class="header-tools" data-astro-cid-fzpbxy5g><site-search data-index-url="/zhinong-website-preview/search-index.json" data-astro-cid-7yy3665x="true"><button class="header-tool" type="button" aria-label="站内搜索" aria-expanded="false" aria-controls="site-search-panel" data-astro-cid-7yy3665x><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" data-astro-cid-7yy3665x><circle cx="10.5" cy="10.5" r="6.5" data-astro-cid-7yy3665x></circle><path d="m15.5 15.5 5 5" data-astro-cid-7yy3665x></path></svg></button><div id="site-search-panel" class="header-search-panel" role="region" aria-label="站内搜索" aria-hidden="true" data-open="false" inert data-astro-cid-7yy3665x><div class="header-search-row" data-astro-cid-7yy3665x><form class="search-form" role="search" data-astro-cid-7yy3665x><label class="search-sr-only" for="site-search-input" data-astro-cid-7yy3665x>搜索至农网站内容</label><div class="search-form__row" data-astro-cid-7yy3665x><input id="site-search-input" type="search" name="q" maxlength="100" autocomplete="off" enterkeyhint="search" placeholder="搜索 znkeji.com" data-astro-cid-7yy3665x><button type="submit" aria-label="搜索" data-astro-cid-7yy3665x><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" data-astro-cid-7yy3665x><circle cx="10.5" cy="10.5" r="6.5" data-astro-cid-7yy3665x></circle><path d="m15.5 15.5 5 5" data-astro-cid-7yy3665x></path></svg></button></div></form><button class="search-close" type="button" aria-label="关闭搜索" data-astro-cid-7yy3665x><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" data-astro-cid-7yy3665x><path d="m6 6 12 12M6 18 18 6" data-astro-cid-7yy3665x></path></svg></button></div><div class="search-dropdown" hidden data-astro-cid-7yy3665x><div class="search-feedback" data-astro-cid-7yy3665x><p class="search-status" role="status" aria-live="polite" aria-atomic="true" hidden data-astro-cid-7yy3665x></p><button class="search-retry" type="button" hidden data-astro-cid-7yy3665x>重试</button></div><ol class="search-results" aria-label="搜索结果" hidden data-astro-cid-7yy3665x></ol></div></div></site-search><script type="module" src="/zhinong-website-preview/assets/client/SiteSearch-6YN7zqxL.js"></script><a class="header-tool" href="/zhinong-website-preview/contact/#contact-options" aria-label="联系我们" title="联系我们" data-astro-cid-fzpbxy5g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" data-astro-cid-fzpbxy5g><rect x="3" y="5" width="18" height="14" rx="1" data-astro-cid-fzpbxy5g></rect><path d="m3 6 9 7 9-7" data-astro-cid-fzpbxy5g></path></svg></a></div><details class="mobile-nav" data-astro-cid-fzpbxy5g><summary data-astro-cid-fzpbxy5g><span data-astro-cid-fzpbxy5g>导航</span><svg class="icon-arrow icon-arrow--down" viewBox="0 0 20 20" aria-hidden="true" data-astro-cid-cgwz3aqc><path d="M3 10h13M11 5l5 5-5 5" data-astro-cid-cgwz3aqc></path></svg></summary><nav aria-label="移动端主导航" data-astro-cid-fzpbxy5g><header-navigation data-mode="mobile" data-astro-cid-ylzt5y6o="true"><a data-primary-link href="/zhinong-website-preview/" data-astro-cid-ylzt5y6o>首页</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>关于我们</a><button class="submenu-toggle" type="button" aria-label="展开关于我们二级导航" aria-controls="mobile-submenu-1" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-1" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="关于我们二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/about/" data-astro-cid-ylzt5y6o>公司概况</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/zhejiang/" data-astro-cid-ylzt5y6o>至农科技发展（浙江）有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/jiangxi/" data-astro-cid-ylzt5y6o>江西至农技术发展有限公司</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/companies/qingyuan/" data-astro-cid-ylzt5y6o>至农科技发展（庆元）有限公司</a></li></ul></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/products/" data-astro-cid-ylzt5y6o>产品与技术</a><button class="submenu-toggle" type="button" aria-label="展开产品与技术二级导航" aria-controls="mobile-submenu-2" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-2" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="产品与技术二级导航" data-astro-cid-ylzt5y6o><li data-tier="section" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/" data-astro-cid-ylzt5y6o>产品概览</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36706/" data-astro-cid-ylzt5y6o>生物有机肥</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36705/" data-astro-cid-ylzt5y6o>有机肥</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36701/" data-astro-cid-ylzt5y6o>酸性土壤调理剂</a></li><li data-tier="product" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/products/legacy-36703/" data-astro-cid-ylzt5y6o>含硅水溶肥</a></li><li data-tier="section" data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/core-technology/" data-astro-cid-ylzt5y6o>核心技术</a></li></ul></div></div><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/solutions/" data-astro-cid-ylzt5y6o>主营业务</a><button class="submenu-toggle" type="button" aria-label="展开主营业务二级导航" aria-controls="mobile-submenu-3" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-3" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="主营业务二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/acidic-soil/" data-astro-cid-ylzt5y6o>酸化土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/cultivated-land-safe-use/" data-astro-cid-ylzt5y6o>重金属污染耕地安全利用</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/soil-fertility/" data-astro-cid-ylzt5y6o>土壤肥力提升</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/continuous-cropping/" data-astro-cid-ylzt5y6o>连作障碍防治</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/saline-alkali-soil/" data-astro-cid-ylzt5y6o>盐碱土壤改良</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/solutions/crop-quality/" data-astro-cid-ylzt5y6o>作物质量提升</a></li></ul></div></div><a data-primary-link href="/zhinong-website-preview/cases/" aria-current="page" data-astro-cid-ylzt5y6o>项目案例</a><div class="navigation-group" data-navigation-group data-astro-cid-ylzt5y6o><div class="navigation-row" data-astro-cid-ylzt5y6o><a data-primary-link href="/zhinong-website-preview/talent/" data-astro-cid-ylzt5y6o>人才资源</a><button class="submenu-toggle" type="button" aria-label="展开人才资源二级导航" aria-controls="mobile-submenu-5" aria-expanded="false" hidden data-astro-cid-ylzt5y6o><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-astro-cid-ylzt5y6o><path d="m4 6 4 4 4-4" data-astro-cid-ylzt5y6o></path></svg></button></div><div class="navigation-panel" id="mobile-submenu-5" data-navigation-panel data-open="false" aria-hidden="true" inert data-astro-cid-ylzt5y6o><ul aria-label="人才资源二级导航" data-astro-cid-ylzt5y6o><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#recruitment" data-astro-cid-ylzt5y6o>招聘信息</a></li><li data-astro-cid-ylzt5y6o><a href="/zhinong-website-preview/talent/#leadership" data-astro-cid-ylzt5y6o>领导介绍</a></li></ul></div></div><a data-primary-link href="/zhinong-website-preview/contact/" data-astro-cid-ylzt5y6o>联系我们</a></header-navigation></nav></details></header><main id="main-content"><div class="legacy-site"><article class="project-reading section-shell" data-astro-cid-l2nlvqdx><header data-astro-cid-l2nlvqdx><p class="project-reading__eyebrow" data-astro-cid-l2nlvqdx>项目与案例</p><h1 data-astro-cid-l2nlvqdx>2023年玉山县受污染耕地安全利用及严格管控项目</h1></header><dl aria-label="已知项目信息" data-astro-cid-l2nlvqdx><div data-astro-cid-l2nlvqdx><dt data-astro-cid-l2nlvqdx>项目地区</dt><dd data-astro-cid-l2nlvqdx>玉山县</dd></div><div data-astro-cid-l2nlvqdx><dt data-astro-cid-l2nlvqdx>项目年份</dt><dd data-astro-cid-l2nlvqdx>2023年</dd></div><div data-astro-cid-l2nlvqdx><dt data-astro-cid-l2nlvqdx>项目方向</dt><dd data-astro-cid-l2nlvqdx>受污染耕地安全利用及严格管控</dd></div><div data-astro-cid-l2nlvqdx><dt data-astro-cid-l2nlvqdx>页面发布日期</dt><dd data-astro-cid-l2nlvqdx><time datetime="2026-06-29" data-astro-cid-l2nlvqdx>2026-06-29</time></dd></div></dl><figure data-astro-cid-l2nlvqdx><img src="/zhinong-website-preview/assets/display/a05f45d7dabf96b0c377345309326e8d9ee640cf6a992c12ad69862514042d5f.jpg" alt="2023年玉山县受污染耕地安全利用及严格管控项目 · 原页面配图" data-astro-cid-l2nlvqdx></figure><section class="project-reading__consult" data-astro-cid-l2nlvqdx><h2 data-astro-cid-l2nlvqdx>合作咨询</h2><div class="action-row" data-astro-cid-l2nlvqdx><a class="solid-link" href="/zhinong-website-preview/contact/" data-astro-cid-l2nlvqdx>项目合作咨询 <svg class="icon-arrow icon-arrow--right" viewBox="0 0 20 20" aria-hidden="true" data-astro-cid-cgwz3aqc><path d="M3 10h13M11 5l5 5-5 5" data-astro-cid-cgwz3aqc></path></svg></a><a class="outline-link" href="/zhinong-website-preview/cases/" data-astro-cid-l2nlvqdx>返回项目案例 <svg class="icon-arrow icon-arrow--right" viewBox="0 0 20 20" aria-hidden="true" data-astro-cid-cgwz3aqc><path d="M3 10h13M11 5l5 5-5 5" data-astro-cid-cgwz3aqc></path></svg></a></div></section></article></div></main><footer class="site-footer" id="site-footer" data-astro-cid-nns7i3if><div class="footer-brand-row" data-astro-cid-nns7i3if><a class="footer-logo" style="--brand-mask:url(&quot;/zhinong-website-preview/brand/zhinong-logo.png&quot;)" href="/zhinong-website-preview/" aria-label="至农科技首页" data-astro-cid-nns7i3if><img src="/zhinong-website-preview/brand/zhinong-logo.png" alt="至农科技" width="180" data-astro-cid-nns7i3if></a><div class="footer-hotline" data-astro-cid-nns7i3if><h2 data-astro-cid-nns7i3if>至农科技售后热线</h2><div class="footer-hotline__details" data-astro-cid-nns7i3if><a href="tel:15735644318" data-astro-cid-nns7i3if>15735644318</a><p data-astro-cid-nns7i3if>童先生 · 24小时售后在线</p></div></div></div><nav class="footer-navigation" aria-label="页脚导航" data-astro-cid-nns7i3if><section aria-labelledby="footer-site-title" data-astro-cid-nns7i3if><h2 id="footer-site-title" data-astro-cid-nns7i3if>网站导航</h2><ul data-astro-cid-nns7i3if><li data-astro-cid-nns7i3if><a data-footer-primary href="/zhinong-website-preview/" data-astro-cid-nns7i3if>首页</a></li><li data-astro-cid-nns7i3if><a data-footer-primary href="/zhinong-website-preview/about/" data-astro-cid-nns7i3if>关于我们</a></li><li data-astro-cid-nns7i3if><a data-footer-primary href="/zhinong-website-preview/products/" data-astro-cid-nns7i3if>产品与技术</a></li><li data-astro-cid-nns7i3if><a data-footer-primary href="/zhinong-website-preview/solutions/" data-astro-cid-nns7i3if>主营业务</a></li><li data-astro-cid-nns7i3if><a data-footer-primary href="/zhinong-website-preview/cases/" data-astro-cid-nns7i3if>项目案例</a></li><li data-astro-cid-nns7i3if><a data-footer-primary href="/zhinong-website-preview/talent/" data-astro-cid-nns7i3if>人才资源</a></li><li data-astro-cid-nns7i3if><a data-footer-primary href="/zhinong-website-preview/contact/" data-astro-cid-nns7i3if>联系我们</a></li></ul></section><section aria-labelledby="footer-contact-title" data-astro-cid-nns7i3if><h2 id="footer-contact-title" data-astro-cid-nns7i3if>联系我们</h2><ul data-astro-cid-nns7i3if><li data-astro-cid-nns7i3if><a href="/zhinong-website-preview/contact/#business" data-astro-cid-nns7i3if>业务合作</a></li><li data-astro-cid-nns7i3if><a href="/zhinong-website-preview/contact/#media" data-astro-cid-nns7i3if>媒体联系</a></li><li data-astro-cid-nns7i3if><a href="/zhinong-website-preview/contact/#feedback" data-astro-cid-nns7i3if>意见反馈</a></li></ul></section><section aria-labelledby="footer-media-title" data-astro-cid-nns7i3if><h2 id="footer-media-title" data-astro-cid-nns7i3if>新闻与媒体</h2><ul data-astro-cid-nns7i3if><li data-astro-cid-nns7i3if><a href="/zhinong-website-preview/news/?category=company" data-astro-cid-nns7i3if>公司新闻</a></li><li data-astro-cid-nns7i3if><a href="/zhinong-website-preview/news/?category=media" data-astro-cid-nns7i3if>媒体报道</a></li><li data-astro-cid-nns7i3if><a href="/zhinong-website-preview/cases/" data-astro-cid-nns7i3if>项目案例</a></li></ul></section><section aria-labelledby="footer-official-title" data-astro-cid-nns7i3if><h2 id="footer-official-title" data-astro-cid-nns7i3if>官方联系方式</h2><dl data-astro-cid-nns7i3if><div data-astro-cid-nns7i3if><dt data-astro-cid-nns7i3if>官方电话</dt><dd data-astro-cid-nns7i3if><a href="tel:0571-88771405" data-astro-cid-nns7i3if>0571-88771405</a></dd></div><div data-astro-cid-nns7i3if><dt data-astro-cid-nns7i3if>官方邮箱</dt><dd data-astro-cid-nns7i3if><a class="footer-official-email" href="mailto:zhinong@zjshjkj.com" data-astro-cid-nns7i3if><span data-astro-cid-nns7i3if>zhinong</span><wbr data-astro-cid-nns7i3if><span data-astro-cid-nns7i3if>@zjshjkj.com</span></a></dd></div></dl></section></nav><div class="site-footer__legal" data-astro-cid-nns7i3if><span data-astro-cid-nns7i3if>© 2026 至农科技发展（浙江）有限公司</span></div></footer></div></body></html>
