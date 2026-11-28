@@ -1522,8 +1522,14 @@ h3[data-astro-cid-w53kduh3] {
   }
 
   .carousel-arrow[data-astro-cid-a5gaoytn] {
-    top: 18%;
+    top: 40%;
     height: 48px;
+  }
+}
+
+@media (width <= 374px) {
+  .carousel-arrow[data-astro-cid-a5gaoytn] {
+    top: 35%;
   }
 }
 
@@ -1781,6 +1787,39 @@ h3[data-astro-cid-w53kduh3] {
   .home-business-grid[data-astro-cid-aqqgxix6] {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .home-business-grid[data-astro-cid-aqqgxix6] > article[data-astro-cid-aqqgxix6] {
+    position: relative;
+    display: block;
+    min-height: 56px;
+    padding: .75rem 2.75rem .75rem 0;
+  }
+
+  .home-business-grid[data-astro-cid-aqqgxix6] > article[data-astro-cid-aqqgxix6] h3[data-astro-cid-aqqgxix6] {
+    margin: 0;
+  }
+
+  .home-business-grid[data-astro-cid-aqqgxix6] > article[data-astro-cid-aqqgxix6] p[data-astro-cid-aqqgxix6] {
+    margin: .25rem 0 0;
+    font-size: .875rem;
+    line-height: 1.65;
+  }
+
+  .home-business-grid[data-astro-cid-aqqgxix6] > [data-astro-cid-aqqgxix6][data-business-id="acidic-soil"] p[data-astro-cid-aqqgxix6], .home-business-grid[data-astro-cid-aqqgxix6] > [data-astro-cid-aqqgxix6][data-business-id="saline-alkali-soil"] p[data-astro-cid-aqqgxix6] {
+    display: none;
+  }
+
+  .home-business-grid[data-astro-cid-aqqgxix6] .home-business__action[data-astro-cid-aqqgxix6] {
+    position: absolute;
+    inset: 0;
+    justify-content: flex-end;
+    padding-inline-end: .5rem;
+    text-decoration: none;
+  }
+
+  .home-business__action[data-astro-cid-aqqgxix6] > span[data-astro-cid-aqqgxix6] {
+    display: none;
   }
 }
 
@@ -2871,10 +2910,6 @@ figcaption[data-astro-cid-fmfgs2lu] a[data-astro-cid-fmfgs2lu] {
   padding-bottom: var(--section);
 }
 
-h2[data-astro-cid-6skfal44] {
-  font-size: 1.625rem;
-}
-
 p[data-astro-cid-6skfal44] {
   font-size: .875rem;
   line-height: 1.75;
@@ -3044,6 +3079,11 @@ h3[data-astro-cid-tyiywhkw] {
   margin: 0;
 }
 
+.product-spec-note[data-astro-cid-tyiywhkw] {
+  font-size: .875rem;
+  color: var(--ink-700);
+}
+
 .product-detail__spec[data-astro-cid-tyiywhkw] + .product-detail__spec[data-astro-cid-tyiywhkw] {
   margin-top: 2rem;
 }
@@ -3174,7 +3214,8 @@ figure[data-astro-cid-l2nlvqdx] {
 
 img[data-astro-cid-l2nlvqdx] {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
 }
 
@@ -3327,7 +3368,12 @@ h3[data-astro-cid-5ljwtxvj] {
     padding-block: 12px;
   }
 }
-</style><style>.talent-page[data-astro-cid-ssihzdib] {
+</style><style>.talent-person[data-astro-cid-ssihzdib] .eyebrow[data-astro-cid-ssihzdib] {
+  color: var(--forest-800);
+  font-size: .875rem;
+}
+
+.talent-page[data-astro-cid-ssihzdib] {
   overflow-wrap: anywhere;
 }
 
